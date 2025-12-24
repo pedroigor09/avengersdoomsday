@@ -4,7 +4,6 @@ import { SnowEffect } from "@/components/SnowEffect";
 import { NeonFog } from "@/components/NeonFog";
 
 export default function Home() {
-  // Data de lançamento: 18 de dezembro de 2026
   const releaseDate = new Date("2026-12-18T00:00:00");
 
   return (
