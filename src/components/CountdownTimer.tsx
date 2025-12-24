@@ -108,8 +108,8 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8">
-      <div className={`flex items-center gap-4 md:gap-8 ${isGlitching ? 'glitch-active' : ''}`}>
+    <div className="flex flex-col items-center justify-center gap-8 w-full max-w-7xl">
+      <div className={`flex items-center gap-1 sm:gap-2 md:gap-4 lg:gap-8 flex-wrap justify-center ${isGlitching ? 'glitch-active' : ''}`}>
         <TimeUnit value={formatNumber(months)} label="MONTHS" isGlitching={isGlitching} />
         <Separator />
         <TimeUnit value={formatNumber(days)} label="DAYS" isGlitching={isGlitching} />
@@ -126,9 +126,9 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
 
 function TimeUnit({ value, label, isGlitching }: { value: string; label: string; isGlitching: boolean }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center min-w-[40px] sm:min-w-[60px]">
       <span 
-        className={`relative inline-block text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.1em] tabular-nums ${
+        className={`relative inline-block text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-light tracking-[0.05em] md:tracking-[0.1em] tabular-nums ${
           isGlitching ? 'animate-glitch' : ''
         }`}
         style={{
@@ -169,7 +169,7 @@ function TimeUnit({ value, label, isGlitching }: { value: string; label: string;
           </>
         )}
       </span>
-      <span className="text-[10px] md:text-xs text-white/80 tracking-[0.3em] mt-2 font-light">
+      <span className="text-[7px] sm:text-[9px] md:text-xs text-white/80 tracking-[0.2em] sm:tracking-[0.3em] mt-1 md:mt-2 font-light">
         {label}
       </span>
     </div>
@@ -178,7 +178,7 @@ function TimeUnit({ value, label, isGlitching }: { value: string; label: string;
 
 function Separator() {
   return (
-    <span className="text-4xl md:text-6xl lg:text-7xl font-light text-white/60 -mt-8">
+    <span className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-light text-white/60 -mt-4 md:-mt-8">
       :
     </span>
   );

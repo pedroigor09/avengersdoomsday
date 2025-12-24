@@ -28,11 +28,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <main className="relative z-10 flex items-center justify-center px-4 animate-slide-up">
+      <main className="relative z-10 flex items-center justify-center px-2 sm:px-4 animate-slide-up w-full">
         <CountdownTimer targetDate={releaseDate} />
       </main>
 
-      <div className="fixed bottom-4 right-4 z-50 text-xs text-white/40 tracking-widest font-light hover:text-[#00ff88] hover:drop-shadow-[0_0_8px_rgba(0,255,136,0.6)] transition-all duration-300">
+      <div className="fixed bottom-2 right-2 sm:bottom-4 sm:right-4 z-50 text-[10px] sm:text-xs text-white/40 tracking-widest font-light hover:text-[#00ff88] hover:drop-shadow-[0_0_8px_rgba(0,255,136,0.6)] transition-all duration-300">
         by: pedrodev
       </div>
 
