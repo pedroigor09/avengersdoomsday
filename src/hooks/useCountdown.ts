@@ -27,7 +27,6 @@ export function useCountdown(targetDate: Date): TimeLeft {
       };
     }
 
-    // Cálculo preciso de meses e dias
     const nowYear = now.getFullYear();
     const nowMonth = now.getMonth();
     const targetYear = targetDate.getFullYear();
@@ -35,16 +34,13 @@ export function useCountdown(targetDate: Date): TimeLeft {
 
     let months = (targetYear - nowYear) * 12 + (targetMonth - nowMonth);
     
-    // Ajustar se o dia atual é maior que o dia alvo
     if (now.getDate() > targetDate.getDate()) {
       months--;
     }
 
-    // Calcular data futura após adicionar os meses
     const futureDate = new Date(now);
     futureDate.setMonth(futureDate.getMonth() + months);
     
-    // Diferença restante em milissegundos
     const remainingDifference = targetDate.getTime() - futureDate.getTime();
     
     const days = Math.floor(remainingDifference / (1000 * 60 * 60 * 24));

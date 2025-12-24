@@ -59,7 +59,6 @@ export function SnowEffect() {
 
   return (
     <div className="snowflake-area">
-      {/* Small snowflakes */}
       {snowflakes.small.map((style, i) => (
         <div 
           key={`sm-${i}`} 
@@ -70,7 +69,6 @@ export function SnowEffect() {
         </div>
       ))}
       
-      {/* Medium snowflakes */}
       {snowflakes.medium.map((style, i) => (
         <div 
           key={`md-${i}`} 
@@ -81,7 +79,6 @@ export function SnowEffect() {
         </div>
       ))}
       
-      {/* Large snowflakes */}
       {snowflakes.large.map((style, i) => (
         <div 
           key={`lg-${i}`} 

@@ -9,10 +9,8 @@ export default function Home() {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black">
-      {/* Névoa verde neon */}
       <NeonFog />
 
-      {/* Background Image com Blur */}
       <div className="absolute inset-0 z-0 animate-fade-in">
         <Image
           src="/avengers2.jpg"
@@ -27,16 +25,17 @@ export default function Home() {
           priority
           quality={100}
         />
-        {/* Overlay escuro para melhorar legibilidade */}
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* Countdown Timer */}
       <main className="relative z-10 flex items-center justify-center px-4 animate-slide-up">
         <CountdownTimer targetDate={releaseDate} />
       </main>
 
-      {/* Efeito de neve verde */}
+      <div className="fixed bottom-4 right-4 z-50 text-xs text-white/40 tracking-widest font-light hover:text-[#00ff88] hover:drop-shadow-[0_0_8px_rgba(0,255,136,0.6)] transition-all duration-300">
+        by: pedrodev
+      </div>
+
       <SnowEffect />
     </div>
   );
