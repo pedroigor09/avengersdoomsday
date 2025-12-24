@@ -16,6 +16,7 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
   const [isPlayingSino, setIsPlayingSino] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [isGlitching, setIsGlitching] = useState(false);
+  const [audioEnabled, setAudioEnabled] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -52,7 +53,7 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
   }, []);
 
   useEffect(() => {
-    if (previousMonthsRef.current !== months && previousMonthsRef.current > months && sinoRef.current) {
+    if (previousMonthsRef.current !== months && previousMonthsRef.current > months && sinoRef.current && audioEnabled) {
       setIsPlayingSino(true);
       
       sinoRef.current.currentTime = 0;
@@ -69,17 +70,17 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
       }, 12000);
     }
     previousMonthsRef.current = months;
-  }, [months]);
+  }, [months, audioEnabled]);
 
   useEffect(() => {
-    if (previousSecondsRef.current !== seconds && audioRef.current && !isPlayingSino) {
+    if (previousSecondsRef.current !== seconds && audioRef.current && !isPlayingSino && audioEnabled) {
       audioRef.current.currentTime = 0;
       audioRef.current.play().catch((error) => {
         console.log("Autoplay bloqueado:", error);
       });
     }
     previousSecondsRef.current = seconds;
-  }, [seconds, isPlayingSino]);
+  }, [seconds, isPlayingSino, audioEnabled]);
 
   if (!isMounted) {
     return (
@@ -109,6 +110,14 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
 
   return (
     <div className="flex flex-col items-center justify-center gap-8 w-full max-w-7xl">
+      {!audioEnabled && (
+        <button
+          onClick={() => setAudioEnabled(true)}
+          className="mb-4 px-6 py-3 bg-[#00cc66]/20 border border-[#00cc66] text-[#00cc66] rounded-lg hover:bg-[#00cc66]/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,204,102,0.5)] font-light tracking-widest text-sm"
+        >
+          🔊 ENABLE SOUND
+        </button>
+      )}
       <div className={`flex items-center gap-1 sm:gap-2 md:gap-4 lg:gap-8 flex-wrap justify-center ${isGlitching ? 'glitch-active' : ''}`}>
         <TimeUnit value={formatNumber(months)} label="MONTHS" isGlitching={isGlitching} />
         <Separator />
