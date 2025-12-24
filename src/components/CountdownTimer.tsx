@@ -35,7 +35,7 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
 
   useEffect(() => {
     audioRef.current = new Audio("/relogio.mp4");
-    audioRef.current.volume = 0.5;
+    audioRef.current.volume = 0.9;
     
     sinoRef.current = new Audio("/sino.mp4");
     sinoRef.current.volume = 0.6;
