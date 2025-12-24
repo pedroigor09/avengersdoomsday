@@ -206,7 +206,7 @@ Este projeto é de código aberto e está disponível sob a licença MIT.
 
 ## 👨‍💻 Desenvolvido por
 
-**Pedro Dev** ([@pedrodev](https://github.com/yourusername))
+**Pedro Dev** ([@pedrodev](https://github.com/pedroigor09))
 
 Projeto criado com 💚 por um fã da Marvel.
 
